@@ -1,0 +1,25 @@
+== binary
+primes: ELF 64-bit LSB executable, x86-64, version 1 (GNU/Linux), statically linked, BuildID[sha1]=ea1e25973da459043c40653f714cfb005a89a18a, for GNU/Linux 3.2.0, not stripped
+
+== build from source (clean, no warnings)
+build OK
+
+== correctness (all public cases + edges + pi(5M))
+N=1 -> 0
+N=2 -> 1
+N=3 -> 2
+N=10 -> 4
+N=100 -> 25
+N=1000 -> 168
+N=100000 -> 9592
+N=1000000 -> 78498
+N=5000000 -> 348513
+
+== run.sh path (direct exec)
+348513
+
+== benchmark (25 runs each, subprocess wall-clock)
+N=1000000 segmented ./primes: min 1.68 ms / median 1.97 ms
+N=1000000 segmented ./run.sh: min 2.90 ms / median 3.07 ms
+N=5000000 segmented ./primes: min 4.50 ms / median 4.57 ms
+N=5000000 segmented ./run.sh: min 5.93 ms / median 6.59 ms
